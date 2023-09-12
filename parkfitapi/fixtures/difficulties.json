@@ -1,0 +1,23 @@
+[
+    {
+        "model": "parkfitapi.difficulty",
+        "pk": 1,
+        "fields": {
+            "skillLevel": "Beginner"
+        }
+    },
+    {
+        "model": "parkfitapi.difficulty",
+        "pk": 2,
+        "fields": {
+            "skillLevel": "Intermediate"
+        }
+    },
+    {
+        "model": "parkfitapi.difficulty",
+        "pk": 3,
+        "fields": {
+            "skillLevel": "Advanced"
+        } 
+    }
+]

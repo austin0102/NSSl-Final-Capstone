@@ -1,0 +1,18 @@
+[
+    {
+        "model": "parkfitapi.athleteClasses",
+        "pk": 1,
+        "fields": {
+            "athlete": 1,
+            "class_attended": 1
+        }
+    },
+    {
+        "model": "parkfitapi.athleteClasses",
+        "pk": 2,
+        "fields": {
+            "athlete": 2,
+            "class_attended": 2
+        }
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "model": "parkfitapi.classes",
+        "pk": 1,
+        "fields": {
+            "name": "Yoga in the Park",
+            "timeDate": "2023-09-15T14:00:00Z",
+            "location": "Central Park",
+            "trainer": 1,
+            "difficulty": 1,
+            "price": "15.00"
+        }
+    },
+    {
+        "model": "parkfitapi.classes",
+        "pk": 2,
+        "fields": {
+            "name": "Pilates",
+            "timeDate": "2023-09-16T18:30:00Z",
+            "location": "Riverside Park",
+            "trainer": 2,
+            "difficulty": 2,
+            "price": "20.00"
+        }
+    }
+]

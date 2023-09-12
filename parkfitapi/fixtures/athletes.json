@@ -1,0 +1,16 @@
+[
+    {
+        "model": "parkfitapi.athlete",
+        "pk": 1,
+        "fields": {
+            "user": 2
+        }
+    },
+    {
+        "model": "parkfitapi.athlete",
+        "pk": 2,
+        "fields": {
+            "user": 4
+        }
+    }
+]
