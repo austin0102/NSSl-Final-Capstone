@@ -5,13 +5,27 @@ from rest_framework import serializers, status
 from parkfitapi.models import Classes, Difficulty
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
+from rest_framework import viewsets
+from rest_framework.response import Response
 
 
-class ClassesView(ViewSet):
+
+class ClassesView(viewsets.ModelViewSet):
     def list(self, request):
         classes = Classes.objects.all()
+        token = request.query_params.get("token", None)
+        trainer_id = request.query_params.get("trainer", None)
+
+        if token:
+            user = Token.objects.get(key=token).user
+            classes = classes.filter(trainer=user)
+
+        if trainer_id:
+            classes = classes.filter(trainer=trainer_id)
+
         serializer = ClassesSerializer(classes, many=True)
         return Response(serializer.data)
+
     
     def retrieve(self, request, pk):
         classes = Classes.objects.get(pk=pk)

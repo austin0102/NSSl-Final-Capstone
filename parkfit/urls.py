@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls import include
 from rest_framework import routers
-from parkfitapi.views import login_user, register_user, DifficultyView, UserView, ClassesView, TokenView
+from parkfitapi.views import login_user, register_user, TrainerView, athleteClassesView, DifficultyView, UserView, ClassesView, TokenView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'users', UserView, 'user')
 router.register(r'classes', ClassesView, 'class')
 router.register(r'tokens', TokenView, 'token')
 router.register(r'difficulties', DifficultyView, 'difficulty')
+router.register(r'athleteclasses', athleteClassesView, 'athleteclass')
+router.register(r'trainers', TrainerView, 'trainer')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
