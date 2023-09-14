@@ -11,6 +11,7 @@ from rest_framework.response import Response
 
 
 class ClassesView(viewsets.ModelViewSet):
+    # Assuming TimeDate is the field by which you want to order
     def list(self, request):
         classes = Classes.objects.all()
         token = request.query_params.get("token", None)
@@ -23,8 +24,12 @@ class ClassesView(viewsets.ModelViewSet):
         if trainer_id:
             classes = classes.filter(trainer=trainer_id)
 
+        # Order the classes by the TimeDate field (from newest to oldest)
+        classes = classes.order_by('-timeDate')
+
         serializer = ClassesSerializer(classes, many=True)
         return Response(serializer.data)
+
 
     
     def retrieve(self, request, pk):
