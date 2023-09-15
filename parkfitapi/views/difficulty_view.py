@@ -23,4 +23,4 @@ class DifficultyView(ViewSet):
 class DifficultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Difficulty
-        fields = ('id', 'skillLevel')
+        fields = ('id', 'skillLevel',)
