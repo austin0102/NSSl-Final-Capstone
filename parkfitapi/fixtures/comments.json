@@ -1,0 +1,20 @@
+[
+    {
+        "model": "parkfitapi.comments",
+        "pk": 1,
+        "fields": {
+            "review": "Can't Wait to be there",
+            "user": 3,
+            "post": 1
+        }
+    },
+    {
+        "model": "parkfitapi.comments",
+        "pk": 2,
+        "fields": {
+            "review": "Jane makes class so fun",
+            "user": 4,
+            "post": 2
+        }
+    }
+]

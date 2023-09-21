@@ -5,3 +5,4 @@ from .token_view import TokenView
 from .difficulty_view import DifficultyView
 from .athleteClasses_view import athleteClassesView
 from .trainer_view import TrainerView
+from .comments_view import CommentView

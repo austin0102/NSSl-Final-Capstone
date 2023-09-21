@@ -8,6 +8,7 @@ python3 manage.py loaddata tokens
 python manage.py loaddata trainers
 python manage.py loaddata difficulties
 python manage.py loaddata classes
+python manage.py loaddata comments
 python manage.py loaddata athletes
 python manage.py loaddata athlete_classes
 

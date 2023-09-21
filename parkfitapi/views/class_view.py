@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from parkfitapi.models import Classes, Difficulty
+from parkfitapi.models import Classes, Difficulty, Comments
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework import viewsets
@@ -77,18 +77,25 @@ class ClassesView(viewsets.ModelViewSet):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name')
+        fields = ('id', 'first_name', 'username', 'last_name')
 
 class DifficultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Difficulty
         fields = ('id', 'skillLevel')
 
+class CommentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False)
+    class Meta:
+        model = Comments
+        fields = ('id', 'review', 'user', 'post')
+
 class ClassesSerializer(serializers.ModelSerializer):
     trainer = UserSerializer(many=False)
     difficulty = DifficultySerializer(many=False)
+    comments = CommentSerializer(many=True)
 
     class Meta:
         model = Classes
         fields = ('id', 'name', 'timeDate', 'location',
-                'trainer', 'difficulty', 'price')
+                'trainer', 'difficulty', 'price', 'comments')
