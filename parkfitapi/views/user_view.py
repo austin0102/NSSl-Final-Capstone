@@ -3,7 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from django.contrib.auth.models import User
-from parkfitapi.models import Classes, Difficulty
+from parkfitapi.models import Classes, Difficulty, Comments
 
 class UserView(ViewSet):
   def list(self, request):
@@ -28,15 +28,26 @@ class DifficultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Difficulty
         fields = ('id', 'skillLevel')
+
+class CommentUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username')
   
+class CommentSerializer(serializers.ModelSerializer):
+    user = CommentUserSerializer(many=False)
+    class Meta:
+        model = Comments
+        fields = ('id', 'review', 'user', 'post')
+
+
 class ClassesSerializer(serializers.ModelSerializer):
     difficulty = DifficultySerializer(many=False)
-
+    comments = CommentSerializer(many=True)
     class Meta:
         model = Classes
         fields = ('id', 'name', 'timeDate', 'location',
-                'trainer', 'difficulty', 'price')
-
+                'trainer', 'difficulty', 'price', 'comments')
 
 
 class UserSerializer(serializers.ModelSerializer):
